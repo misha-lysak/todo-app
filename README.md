@@ -17,7 +17,7 @@ Made app using React (Hooks), Semantic UI, npm: classNames
 - React-dom: 17.0.2
 - Eslint: 7.23.0
 - Class-names: 2.2.6
-- 
+
 ## Installing
 - Fork and clone this repository
 - Run npm install in your terminal
