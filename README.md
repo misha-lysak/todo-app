@@ -3,9 +3,6 @@ You can look demo here:
 - [DEMO](https://misha-lysak.github.io/todo-app/)
 
 ## Description
-
-
-## Description
 Made app using React (Hooks), Semantic UI, npm: classNames
 
 ## Dependencies
