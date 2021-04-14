@@ -6,13 +6,13 @@ export const Todo = ({
   todo,
   todos,
   setTodos,
-  removeHandler,
+  handleRemove,
 }) => {
   const [isDoubleClicked, setIsDoubleClicked] = useState(false);
   const [title, setTitle] = useState(todo.title);
   const [inputQuery, setInputQuery] = useState(title);
 
-  const completeHandler = useCallback(
+  const handleComplete = useCallback(
     (id) => {
       const newTodos = todos.map(todo => (
         {
@@ -72,7 +72,7 @@ export const Todo = ({
           type="checkbox"
           className="toggle"
           checked={todo.completed}
-          onChange={() => completeHandler(todo.id)}
+          onChange={() => handleComplete(todo.id)}
         />
         <label
           onDoubleClick={() => handleEditing(todo.id)}
@@ -82,7 +82,7 @@ export const Todo = ({
         <button
           type="button"
           className="destroy"
-          onClick={() => removeHandler(todo.id)}
+          onClick={() => handleRemove(todo.id)}
         />
       </div>
       <input
@@ -111,5 +111,5 @@ Todo.propTypes = {
     }).isRequired,
   ).isRequired,
   setTodos: PropTypes.func.isRequired,
-  removeHandler: PropTypes.func.isRequired,
+  handleRemove: PropTypes.func.isRequired,
 };

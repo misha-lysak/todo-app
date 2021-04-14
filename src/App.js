@@ -6,28 +6,20 @@ import { useLocalStorage } from './helpers/useLocasStorage';
 
 export const App = () => {
   const [todos, setTodos] = useState([]);
-  const [isToggleAll, setIsToggleAll] = useState(true);
+  const [isToggledAll, setIsToggledAll] = useState(true);
   const [filter, setFilter] = useState('all');
   const [filteredTodos, setFilteredTodos] = useLocalStorage('todos', todos);
 
   const handleToggle = () => {
-    setIsToggleAll(prev => !prev);
-    let newTodos = [];
-
-    if (isToggleAll) {
-      newTodos = todos.map(todo => ({ ...todo, completed: true }));
-    }
-
-    if (!isToggleAll) {
-      newTodos = todos.map(todo => ({ ...todo, completed: false }));
-    }
+    setIsToggledAll(prev => !prev);
+    const newTodos = todos.map(todo => ({ ...todo, completed: isToggledAll }));
 
     setTodos(newTodos);
   };
 
   const handleClear = () => {
     setTodos(prevState => prevState.filter(todo => !todo.completed));
-    setIsToggleAll(true);
+    setIsToggledAll(true);
   };
 
   const putInLocalStorageTodos = useCallback(

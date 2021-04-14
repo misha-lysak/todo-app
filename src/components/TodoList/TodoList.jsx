@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { Todo } from '../Todo';
 
 export const TodoList = ({ todos, setTodos, filterTodos, setFilterTodos }) => {
-  const removeHandler = (id) => {
+  const handleRemove = (id) => {
     setTodos(todos.filter(todo => todo.id !== id));
   };
 
@@ -17,7 +17,7 @@ export const TodoList = ({ todos, setTodos, filterTodos, setFilterTodos }) => {
           todos={todos}
           setTodos={setTodos}
           filterTodos={filterTodos}
-          removeHandler={removeHandler}
+          handleRemove={handleRemove}
           setFilterTodos={setFilterTodos}
         />
       ))}
