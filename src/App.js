@@ -5,7 +5,7 @@ import { Form } from './components/Form';
 import { useLocalStorage } from './helpers/useLocasStorage';
 
 export const App = () => {
-  const [todos, setTodos] = useState([]);
+  const [todos, setTodos] = useLocalStorage('todos', []);
   const [isToggledAll, setIsToggledAll] = useState(true);
   const [filter, setFilter] = useState('all');
   const [filteredTodos, setFilteredTodos] = useLocalStorage('todos', todos);
